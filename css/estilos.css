@@ -1,0 +1,26 @@
+td{
+	border-bottom: 1px solid #636C72;
+}
+
+th {
+	color: #FFF;
+	background-color: #636C72;
+	text-align: center;
+}
+
+.fondo_app{
+	background-color: #E6E6E6;
+}
+
+.bloque1{
+	background-color: #FFF;
+}
+
+.result_velocidad, .result_pace{
+	font-size: 2em;
+
+}
+
+.boton_hover:hover{
+	cursor: pointer;
+}

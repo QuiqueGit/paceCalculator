@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<title>Pace Calculator</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-reboot.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/estilos.css">
+</head>
+<body>
+	<!-- contenedor app -->
+	<div class="col-12 col-lg-3 container fondo_app">
+		<!-- titulo -->
+		<div class="row">			
+			<div class="col-12 bg-inverse text-center text-white mb-3 lead">
+				<img class="corredor" src="corredor.png" alt="img_corredor">				
+				<span class="titulo">PACE CALCULATOR</span>				
+			</div>
+		</div>
+		<!-- fin titulo -->
+
+		<!-- div distancia y duracion -->
+		<div class="row">
+			<div class="col-12">
+				<div class="col-12 container bloque1 text-center rounded mb-3 pb-3">					
+					<h3 class="mt-1 text-muted"><i class="fa fa-road"></i> Distancia</h3>						
+					<div class="col-10 input-group">
+					  <input type="text" id="distancia" class="form-control text-center">
+					  <!-- botones -->
+					  <div class="col-2 btn-group" data-toggle="buttons">					 
+						  <label class="boton_hover btn btn-outline-primary btn-sm active">
+						    <input type="radio" name="options" id="option1" value="km" autocomplete="off" checked>Km
+						  </label>
+						  <label class="boton_hover btn btn-outline-primary btn-sm">
+						    <input type="radio" name="options" id="option2" value="mi" autocomplete="off">Mi
+						  </label>
+					  </div>					    					    
+					</div>
+					<!-- fin botones -->
+					<h3 class="mt-1 text-muted"><i class="fa fa-clock-o"></i> Duración</h3>
+					<input type="text" id="horas" class="form-control col-3 d-inline-flex text-center btn-sm" placeholder="hh">
+					<label>:</label>
+					<input type="text" id="minutos" class="form-control col-3 d-inline-flex text-center btn-sm" placeholder="mm">
+					<label>:</label>
+					<input type="text" id="segundos" class="form-control col-3 d-inline-flex text-center btn-sm" placeholder="ss">	
+					<div class="row">
+						<div class="col-12 text-muted d-flex align-items-center">  <!-- d-flex align-items-center, para centrar el botón en el centro del div -->
+							<button id="calcular_marca" class="boton_hover btn btn-outline-primary btn-block">Calcular Duración <i class="fa fa-angle-right"></i></button>
+						</div>
+					</div>					
+				</div>								
+			</div>									
+		</div>
+		
+		<!-- fin div distancia y duracion -->
+
+		<!-- div velocidad y pace -->
+		<div class="row">
+			<div class="col-12 no-gutters"> <!-- no-gutters = no margins both sides -->
+				<div class="col-12 container bloque1 text-center rounded d-flex justify-content-between">					
+					<div class="col-12 text-muted">
+						<h4><i class="fa fa-male"></i> Pace</h4>
+						<input type="text" id="horas_pace" class="form-control col-3 d-inline-flex text-center btn-sm">
+						<label>:</label>
+						<input type="text" id="minutos_pace" class="form-control col-3 d-inline-flex text-center btn-sm">
+						<label>:</label>
+						<input type="text" id="segundos_pace" class="form-control col-3 d-inline-flex text-center btn-sm">
+						<label id="km-o-mi"></label>
+						<div class="row">
+							<div class="col-12 text-muted d-flex align-items-center">  <!-- d-flex align-items-center, para centrar el botón en el centro del div -->
+								<button id="calcular_pace" class="boton_hover btn btn-outline-primary btn-block mb-3">Calcular Pace <i class="fa fa-angle-right"></i></button>
+							</div>
+						</div>
+					</div>						
+				</div>
+			</div>
+		</div>
+		
+		<!--fin div velocidad y pace -->
+
+		<!-- div calcular tabla de tiempos con corte -->
+		<div class="row">
+			<div class="col-12 text-muted">
+				<div class="col-12 container bloque1 text-center rounded mt-3 pt-1 pb-2 d-flex justify-content-between no-gutters">
+					<h4 class="col-3 d-flex"><i class="fa fa-table mt-1 mr-1"> </i> Tiempos</h4>
+					<button class="navbar-toggler boton_hover col-1" type="button" data-toggle="collapse" data-target="#resultados"><i class="fa fa-angle-down"></i></button>
+					<input type="text" id="corte" class="form-control col-3 text-center btn-sm" placeholder="Corte">
+				</div>
+				<div class="col-12 container bloque1 d-flex text-center rounded">
+					<button id="calcular_tabla" class="boton_hover btn btn-outline-primary btn-block mb-3">Calcular Tabla <i class="fa fa-angle-right"></i></button>					
+				</div>
+				<div id="resultados" class="collapse show"></div>
+			</div>			
+		</div>
+		<!--fin div cortes pace -->
+
+		<!-- div tabla historial -->
+		<div class="row">
+			<div class="col-12 text-muted">
+				<div class="col-12 container bloque1 text-center rounded mt-3 pb-2">
+					<h4>Historial</h4>				
+				</div>
+				<div class="col-12 container bloque1 d-flex">
+					<button id="mostrar_historial" class="boton_hover btn btn-outline-primary btn-block mb-3">Mostrar Historial <i class="fa fa-angle-right"></i></button>
+				</div>
+				<div id="historial"></div>
+			</div>
+		</div>
+		<!-- fin tabla historial -->
+
+	</div>
+<!-- fin contenedor app -->
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="js/jquery-3.2.1.slim.min.js"></script>
+	<script src="js/popper.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+
+	<script src="js/events.js"></script>
+	<script src="js/calculator.js"></script>
+	<script src="js/calculatorView.js"></script>
+	<script src="js/calculatorHistory.js"></script>
+	<script src="js/calculatorHistoryView.js"></script>
+	<script src="js/main.js"></script>	
+	
+</body>
+</html>
+
+
